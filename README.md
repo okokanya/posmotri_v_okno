@@ -1,0 +1,1 @@
+git@github.com:okokanya/posmotri_v_okno.git
