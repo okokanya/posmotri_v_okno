@@ -1,21 +1,24 @@
+:root {
+  --colorAccent: #545050;
+  --main-bg-color: pink;
+  --white: #FFF;
+  --fira: "Fira Sans Condensed", sans-serif;
+  --oswald: "Oswald", sans-serif;
+  --placeholder: #bbbaba;
+  --bgcolor: #1b1919;
+}
+*:focus-visible {
+  outline: none;
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  transition: 0.3s;
 }
 
 html {
   block-size: 100%;
-}
-
-.page {
-  inline-size: 1200px;
-  block-size: 100%;
-  margin: auto;
-  color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  background-color: #1b1919;
 }
 
 h1,
@@ -30,9 +33,293 @@ blockquote,
 fieldset {
   margin: 0;
   padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 ul,
 ol {
   list-style: none;
+}
+a,
+button {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.page {
+  inline-size: 1200px;
+  block-size: 100%;
+  margin: auto;
+  color: var(--white);
+  font-family: var(--fira);
+  font-size: 18px;
+  background-color: var(--bgcolor);
+  /* background-color: #483f3f; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  column-gap: 30px;
+}
+
+.result {
+  width: 711px;
+  min-height: 100%;
+  width: 711px;
+  min-height: 100%;
+  display: flex;
+  row-gap: 30px;
+  flex-direction: column;
+}
+
+.content__details {
+  width: 399px;
+  height: 534px;
+}
+
+.result__video-container {
+  padding: 50px 0 0 0;
+  position: relative;
+}
+
+.result__video {
+  width: 711px;
+  height: 386px;
+}
+
+.search-form {
+  display: flex;
+  height: 54px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.title {
+  color: var(--white);
+  font-family: var(--oswald);
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 94%;
+  text-transform: uppercase;
+  margin: 0 0 26px 0;
+}
+
+.content__accent {
+  color: var(--colorAccent);
+}
+
+.content__list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  height: 298px;
+  overflow-y: scroll;
+}
+
+.content__video-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.content__video-card-title {
+  font-family: var(--oswald);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+}
+
+.content__video-card-description-container {
+  width: calc(100% - 103px);
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+}
+
+.content__video-card-description {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16.2px;
+}
+.search-form__fieldset-title {
+  color: var(--white);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 0 5px 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form__fieldset {
+  border: none;
+}
+
+.search-form__label {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  align-items: center;
+  cursor: pointer;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+}
+
+.search-form__textfield {
+  appearance: none;
+  caret-color: var(--placeholder);
+  color: inherit;
+}
+
+.search-form__pseudo-checkbox {
+  height: 19px;
+  width: 19px;
+  border: 1px solid var(--white);
+  margin-right: 5px;
+  position: relative;
+}
+
+.button {
+  background-color: transparent;
+  border: 1px solid var(--white);
+  color: inherit;
+  font-family: var(--fira);
+  height: 34px;
+}
+
+
+/* :hover, :active, :focus-visible */
+.button:active {
+  background-color: var(--colorAccent);
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:focus {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 1) inset, 0px 0px 0px 2px rgb(255 255 255) inset;
+}
+
+
+
+
+.search-form__submit-button {
+  padding: 5px 72px;
+  margin: auto 0 0 0;
+}
+
+.more-button {
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+/* У этого элемента нужно сбросить обводку в состоянии фокуса и вместо этого делать границу у лейбла, который его окружает. Лейбл должен получать границу только когда у поля находится в состоянии focus-visible, но не focus. Чтобы такое реализовать, можно применить хитрую комбинацию псевдоклассов — :has(:focus-visible). */
+.search-form__textfield:focus {
+  border:  1px solid transparent;
+  outline: none;
+}
+
+ /* добавлю прозрачный бордер, чтобы потом инпут не прыгал, а плавно появлялся */
+.search-form__label {
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+
+.search-form__label:has(:focus-visible) {
+  
+  border: 1px solid var(--white);
+  border-radius: 0;
+  outline: none;
+}
+
+.search-form__textfield {
+  background-color: transparent;
+  height: 27px;
+  width: 225px;
+  border: none;
+  border-top: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);  
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+.search-form__textfield::placeholder {
+  font-family: inherit;
+  color: var(--placeholder);
+}
+
+
+/* заполнение чекбокса я так делаю, чтобы был транзишен */
+.search-form__checkbox ~ .search-form__pseudo-checkbox::after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+}
+
+.search-form__checkbox:checked ~ .search-form__pseudo-checkbox::after {
+  background-color: var(--white);
+}
+
+
+/* Подчёркивание текста у чекбокса при наведении на лейбл */
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+}
+
+
+/* Шаг 7. Состояния карточек */
+
+.content__card-link {
+  margin: 2px;
+  display: block;
+}
+
+
+.content__card-link_current{
+  background-color: var(--colorAccent);
+}
+
+.content__card-link:active {
+  background-color: var(--colorAccent);
+}
+
+.content__card-link:hover {
+text-decoration: underline;
+}
+
+.content__card-link:focus {
+  /* border: 1px solid var(--white); */
+  box-shadow: 0px 0px 0px 1px var(--bgcolor), 0px 0px 0px 2px var(--white);
 }
