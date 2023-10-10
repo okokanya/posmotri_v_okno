@@ -54,8 +54,8 @@ button {
   color: var(--white);
   font-family: var(--fira);
   font-size: 18px;
-  /* background-color: var(--bgcolor); */
-  background-color: rgb(101, 90, 69);
+  background-color: var(--bgcolor);
+  /* background-color: rgb(101, 90, 69); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,16 +72,14 @@ button {
   flex-direction: column;
   justify-content: flex-end;
   display: flex;
-  row-gap: 30px;
+  row-gap: 16px;
 }
 
 .content__details {
   width: 399px;
-  /* height: 534px; */
 }
 
 .result__video-container {
-  /* padding: 50px 0 0 0; */
   position: relative;
 }
 
@@ -89,12 +87,10 @@ button {
   width: 711px;
   object-fit: cover;
   object-position: center;
-  /* height: 386px; */
 }
 
 .search-form {
   display: flex;
-  /* height: 54px; */
   flex-direction: row;
   justify-content: space-between;
 }
