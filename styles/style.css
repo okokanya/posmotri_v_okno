@@ -54,8 +54,8 @@ button {
   color: var(--white);
   font-family: var(--fira);
   font-size: 18px;
-  background-color: var(--bgcolor);
-  /* background-color: rgb(101, 90, 69); */
+  /* background-color: var(--bgcolor); */
+  background-color: rgb(101, 90, 69);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,12 +81,14 @@ button {
 
 .result__video-container {
   position: relative;
+  /* border: 1px solid blue; */
+
 }
 
 .result__video {
+  /* border: 1px solid red; */
+  display: block;
   width: 711px;
-  object-fit: cover;
-  object-position: center;
 }
 
 .search-form {
@@ -103,7 +105,7 @@ button {
   font-weight: 700;
   line-height: 94%;
   text-transform: uppercase;
-  margin: 0 0 26px 0;
+  margin: 0 0 22px 0;
 }
 
 .content__accent {
@@ -114,7 +116,7 @@ button {
   position: relative;
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 20px;
   height: 298px;
   overflow-y: auto;
 }
@@ -122,6 +124,7 @@ button {
 .content__video-card {
   display: flex;
   flex-direction: row;
+  padding: 2px 0;
 }
 
 .content__video-card-title {
@@ -133,14 +136,16 @@ button {
   text-transform: uppercase;
   margin: 0 0 6px 0;
 }
-
+/* перенесем слова на новую строчку, чтобы не было горизонтального скролла */
 .content__video-card-description-container {
   width: calc(100% - 103px);
+  padding-top: 2px;
+  word-break: break-all;
 }
 
 .content__video-card-thumbnail {
-  width: 194px;
-  height: auto;
+  max-width: 194px;
+  margin: 0 -2px 0 0;
   object-fit: cover;
   object-position: center;
 }
@@ -266,6 +271,7 @@ button {
 .search-form__textfield::placeholder {
   font-family: inherit;
   color: var(--placeholder);
+  font-size: 16px;
 }
 
 /* заполнение чекбокса я так делаю, чтобы был транзишен */
