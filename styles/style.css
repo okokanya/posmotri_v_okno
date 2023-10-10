@@ -188,6 +188,8 @@ button {
   column-gap: 15px;
 }
 
+
+/* Лейбл должен получать границу только когда у поля находится в состоянии focus-visible, но не focus. Чтобы такое реализовать, можно применить хитрую комбинацию псевдоклассов — :has(:focus-visible). */
 .search-form__textfield {
   appearance: none;
   caret-color: var(--placeholder);
@@ -234,13 +236,13 @@ button {
   width: 100%;
 }
 
-/* У этого элемента нужно сбросить обводку в состоянии фокуса и вместо этого делать границу у лейбла, который его окружает. Лейбл должен получать границу только когда у поля находится в состоянии focus-visible, но не focus. Чтобы такое реализовать, можно применить хитрую комбинацию псевдоклассов — :has(:focus-visible). */
+/* У этого элемента нужно сбросить обводку в состоянии фокуса и вместо этого делать границу у лейбла, который его окружает. */
 .search-form__textfield:focus {
-  border: 1px solid transparent;
+  /* border: 1px solid transparent; */
   outline: none;
 }
 
-/* добавлю прозрачный бордер, чтобы потом инпут не прыгал, а плавно появлялся */
+/* Лейбл должен получать границу только когда у поля находится в состоянии focus-visible, но не focus. Чтобы такое реализовать, можно применить хитрую комбинацию псевдоклассов — :has(:focus-visible).  */
 .search-form__label {
   border: 1px solid transparent;
   background-color: transparent;
@@ -249,18 +251,16 @@ button {
 .search-form__label:has(:focus-visible) {
   border: 1px solid var(--white);
   border-radius: 0;
-  outline: none;
 }
 
 .search-form__textfield {
   background-color: transparent;
   height: 27px;
   width: 225px;
+  margin: 1px;
   border: none;
   border-top: 1px solid var(--white);
   border-bottom: 1px solid var(--white);
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
 }
 
 .search-form__textfield::placeholder {
