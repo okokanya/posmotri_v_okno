@@ -54,7 +54,8 @@ button {
   color: var(--white);
   font-family: var(--fira);
   font-size: 18px;
-  background-color: var(--bgcolor);
+  /* background-color: var(--bgcolor); */
+  background-color: rgb(101, 90, 69);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,31 +69,32 @@ button {
 .result {
   width: 711px;
   min-height: 100%;
-  width: 711px;
-  min-height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
   display: flex;
   row-gap: 30px;
-  flex-direction: column;
 }
 
 .content__details {
   width: 399px;
-  height: 534px;
+  /* height: 534px; */
 }
 
 .result__video-container {
-  padding: 50px 0 0 0;
+  /* padding: 50px 0 0 0; */
   position: relative;
 }
 
 .result__video {
   width: 711px;
-  height: 386px;
+  object-fit: cover;
+  object-position: center;
+  /* height: 386px; */
 }
 
 .search-form {
   display: flex;
-  height: 54px;
+  /* height: 54px; */
   flex-direction: row;
   justify-content: space-between;
 }
@@ -118,7 +120,7 @@ button {
   flex-direction: column;
   row-gap: 30px;
   height: 298px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .content__video-card {
@@ -142,7 +144,9 @@ button {
 
 .content__video-card-thumbnail {
   width: 194px;
-  height: 103px;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__video-card-description {
@@ -206,7 +210,9 @@ button {
   background-color: transparent;
   border: 1px solid var(--white);
   color: inherit;
+  font-size: 18px;
   font-family: var(--fira);
+  font-weight: bold;
   height: 34px;
 }
 
@@ -230,7 +236,6 @@ button {
 
 .more-button {
   width: 100%;
-  margin: 0 0 10px 0;
 }
 
 /* У этого элемента нужно сбросить обводку в состоянии фокуса и вместо этого делать границу у лейбла, который его окружает. Лейбл должен получать границу только когда у поля находится в состоянии focus-visible, но не focus. Чтобы такое реализовать, можно применить хитрую комбинацию псевдоклассов — :has(:focus-visible). */
@@ -272,8 +277,17 @@ button {
   display: block;
   content: "";
   position: absolute;
-  top: 1px;
-  left: 1px;
+ /* центрируем чекбокс абсолют */
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+
+  top: 0;
+  bottom: 0;
+  margin-top: auto; 
+  margin-bottom: auto; 
+
   width: 15px;
   height: 15px;
   background-color: transparent;
